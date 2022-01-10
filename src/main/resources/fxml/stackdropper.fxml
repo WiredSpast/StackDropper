@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="197.0" prefWidth="237.0" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StackDropper">
+    <children>
+        <Label layoutX="18.0" layoutY="23.0" text="Max item count:" />
+        <Label layoutX="18.0" layoutY="60.0" text="Item spacing:" />
+        <Button fx:id="reloadInventoryButton" layoutX="14.0" layoutY="130.0" mnemonicParsing="false" onAction="#reloadInventory" prefHeight="36.0" prefWidth="136.0" text="Reload Inventory" />
+        <Button fx:id="enableOrDisableButton" layoutX="157.0" layoutY="130.0" mnemonicParsing="false" onAction="#enableOrDisable" prefHeight="36.0" prefWidth="79.0" text="Enable" />
+        <Spinner fx:id="itemSpacingSpinner" editable="true" layoutX="143.0" layoutY="56.0" prefHeight="25.0" prefWidth="93.0">
+            <valueFactory>
+                <SpinnerValueFactory.DoubleSpinnerValueFactory amountToStepBy="0.1" initialValue="0.1" max="40" min="0" />
+            </valueFactory>
+        </Spinner>
+        <Spinner fx:id="maxItemCountSpinner" editable="true" layoutX="143.0" layoutY="19.0" prefHeight="25.0" prefWidth="93.0">
+            <valueFactory>
+                <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" initialValue="25" max="100" min="-1" />
+            </valueFactory>
+        </Spinner>
+        <Label fx:id="inventoryStatusLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="166.0" prefHeight="17.0" prefWidth="250.0" text="Inventory not loaded" textFill="RED" />
+      <ChoiceBox fx:id="stackTileTypeBox" layoutX="143.0" layoutY="95.0" prefHeight="25.0" prefWidth="93.0" />
+      <Label layoutX="18.0" layoutY="99.0" text="Stacktile to use:" />
+    </children>
+</AnchorPane>
