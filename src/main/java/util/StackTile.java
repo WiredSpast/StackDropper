@@ -4,7 +4,7 @@ import gearth.extensions.ExtensionBase;
 import gearth.protocol.HPacket;
 
 public class StackTile {
-    private ExtensionBase ext;
+    private final ExtensionBase ext;
     public final int id;
     private double height;
     public final StackTileType type;
@@ -26,14 +26,14 @@ public class StackTile {
     public void incrementHeight(double increment) {
         height += increment;
         ext.sendToServer(new HPacket(String.format("{out:SetCustomStackingHeight}{i:%d}{i:%d}", id, Math.round(height * 100))));
-        GAsync.sleep(16);
+        Util.sleep(16);
     }
 
     // {out:SetCustomStackingHeight}{i:225237071}{i:100}
     public void setHeight(double height) {
         ext.sendToServer(new HPacket(String.format("{out:SetCustomStackingHeight}{i:%d}{i:%d}", id, Math.round(height * 100))));
         this.height = height;
-        GAsync.sleep(16);
+        Util.sleep(16);
     }
 
     public enum StackTileType {

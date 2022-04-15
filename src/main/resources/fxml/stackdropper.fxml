@@ -19,7 +19,7 @@
                 <SpinnerValueFactory.IntegerSpinnerValueFactory amountToStepBy="1" initialValue="25" max="100" min="-1" />
             </valueFactory>
         </Spinner>
-        <Label fx:id="inventoryStatusLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="166.0" prefHeight="17.0" prefWidth="250.0" text="Inventory not loaded" textFill="RED" />
+        <Label fx:id="inventoryStatusLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="166.0" prefHeight="17.0" prefWidth="250.0" text="Inventory not loaded" textFill="red" />
       <ChoiceBox fx:id="stackTileTypeBox" layoutX="143.0" layoutY="95.0" prefHeight="25.0" prefWidth="93.0" />
       <Label layoutX="18.0" layoutY="99.0" text="Stacktile to use:" />
     </children>

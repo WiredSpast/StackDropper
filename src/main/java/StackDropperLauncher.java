@@ -1,27 +1,18 @@
-import gearth.extensions.ExtensionForm;
-import gearth.extensions.ExtensionFormCreator;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
+import gearth.extensions.ExtensionInfo;
+import gearth.extensions.ThemedExtensionFormCreator;
 
-import java.util.Objects;
+import java.net.URL;
 
-public class StackDropperLauncher extends ExtensionFormCreator {
+public class StackDropperLauncher extends ThemedExtensionFormCreator {
+
     @Override
-    protected ExtensionForm createForm(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(StackDropper.class.getClassLoader().getResource("fxml/stackdropper.fxml"));
-        Parent root = loader.load();
+    protected String getTitle() {
+        return "Stack Dropper " + StackDropper.class.getAnnotation(ExtensionInfo.class).Version();
+    }
 
-        stage.setTitle("Stack Dropper");
-        stage.setScene(new Scene(root));
-        stage.getScene().getStylesheets().add(Objects.requireNonNull(ExtensionFormCreator.class.getResource("/gearth/ui/bootstrap3.css")).toExternalForm());
-        stage.getIcons().add(new Image(Objects.requireNonNull(this.getClass().getResource("/images/duck_icon.png")).openStream()));
-
-        stage.setResizable(false);
-
-        return loader.getController();
+    @Override
+    protected URL getFormResource() {
+        return getClass().getResource("fxml/stackdropper.fxml");
     }
 
     public static void main(String[] args) {

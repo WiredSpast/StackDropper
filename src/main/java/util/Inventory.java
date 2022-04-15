@@ -1,8 +1,10 @@
 package util;
 
 import gearth.extensions.ExtensionBase;
+import gearth.extensions.extra.tools.AwaitingPacket;
 import gearth.extensions.parsers.HInventoryItem;
 import gearth.extensions.parsers.HProductType;
+import gearth.extensions.extra.tools.GAsync;
 import gearth.protocol.HMessage;
 import gearth.protocol.HPacket;
 
@@ -11,8 +13,8 @@ import java.util.HashMap;
 public class Inventory {
     private final HashMap<Integer, HInventoryItem> items = new HashMap<>();
     private boolean loaded = false;
-    private InventoryLoadedListener loadedListener;
-    private ExtensionBase ext;
+    private final InventoryLoadedListener loadedListener;
+    private final ExtensionBase ext;
 
     public Inventory(ExtensionBase ext, InventoryLoadedListener loadedListener) {
         this.loadedListener = loadedListener;
@@ -86,8 +88,8 @@ public class Inventory {
         int tries = 0;
         String floorString = String.format("-%d %d %d %d", id, x, y, dir);
         while(tries < 10) {
-            async.sendToServer("PlaceObject", floorString);
-            HPacket response = async.awaitPacket(new GAsync.AwaitingPacket("ObjectAdd", HMessage.Direction.TOCLIENT, 100)
+            ext.sendToServer(new HPacket("PlaceObject", HMessage.Direction.TOSERVER, floorString));
+            HPacket response = async.awaitPacket(new AwaitingPacket("ObjectAdd", HMessage.Direction.TOCLIENT, 100)
                     .addConditions(p -> p.readInteger() == id));
             if(response != null) {
                 return response;
@@ -100,9 +102,8 @@ public class Inventory {
     public void pickUpItem(GAsync async, int id) {
         int tries = 0;
         while(tries < 10) {
-            System.out.println(id);
-            async.sendToServer("PickupObject", 2, id);
-            HPacket response = async.awaitPacket(new GAsync.AwaitingPacket("ObjectRemove", HMessage.Direction.TOCLIENT, 50)
+            ext.sendToServer(new HPacket("PickupObject", HMessage.Direction.TOSERVER, 2, id));
+            HPacket response = async.awaitPacket(new AwaitingPacket("ObjectRemove", HMessage.Direction.TOCLIENT, 50)
                     .addConditions(p -> Integer.parseInt(p.readString()) == id));
             if(response != null) return;
             tries++;
