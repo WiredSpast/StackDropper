@@ -1,4 +1,4 @@
-package util;
+package gearth.extension.util;
 
 import gearth.extensions.ExtensionBase;
 import gearth.protocol.HPacket;

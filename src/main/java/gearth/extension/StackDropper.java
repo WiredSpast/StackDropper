@@ -1,3 +1,5 @@
+package gearth.extension;
+
 import gamedata.furnidata.FurniData;
 import gearth.extensions.ExtensionForm;
 import gearth.extensions.ExtensionInfo;
@@ -18,16 +20,16 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.paint.Paint;
-import util.Inventory;
-import util.StackTile;
-import util.Util;
+import gearth.extension.util.Inventory;
+import gearth.extension.util.StackTile;
+import gearth.extension.util.Util;
 
 import java.io.IOException;
 
 @ExtensionInfo(
         Title =         "Stack Dropper",
         Description =   "Drop any item from your inventory or the BC catalog into a stack",
-        Version =       "1.2",
+        Version =       "2.0",
         Author =        "WiredSpast"
 )
 public class StackDropper extends ExtensionForm {

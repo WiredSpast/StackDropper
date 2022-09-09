@@ -1,3 +1,5 @@
+package gearth.extension;
+
 import gearth.extensions.ExtensionInfo;
 import gearth.extensions.ThemedExtensionFormCreator;
 

@@ -1,4 +1,4 @@
-package util;
+package gearth.extension.util;
 
 public class Util {
     public static void sleep(int millis) {

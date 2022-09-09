@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="197.0" prefWidth="237.0" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StackDropper">
+<AnchorPane prefHeight="197.0" prefWidth="237.0" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gearth.extension.StackDropper">
     <children>
         <Label layoutX="18.0" layoutY="23.0" text="Max item count:" />
         <Label layoutX="18.0" layoutY="60.0" text="Item spacing:" />
