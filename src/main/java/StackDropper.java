@@ -27,7 +27,7 @@ import java.io.IOException;
 @ExtensionInfo(
         Title =         "Stack Dropper",
         Description =   "Drop any item from your inventory or the BC catalog into a stack",
-        Version =       "1.2",
+        Version =       "1.3",
         Author =        "WiredSpast"
 )
 public class StackDropper extends ExtensionForm {

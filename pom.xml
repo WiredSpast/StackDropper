@@ -83,6 +83,17 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerVersion>1.8</compilerVersion>
+                    <fork>true</fork>
+                    <executable>/usr/java/jdk1.8.0-x64/bin/javac</executable>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -90,7 +101,7 @@
         <dependency>
             <groupId>G-Earth</groupId>
             <artifactId>G-Earth</artifactId>
-            <version>1.5.2</version>
+            <version>1.5.3</version>
         </dependency>
         <dependency>
             <groupId>org.habboapi</groupId>

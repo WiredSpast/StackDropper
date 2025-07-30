@@ -38,9 +38,13 @@ public class Inventory {
     }
 
     private void onFurniListAddOrUpdate(HMessage hMessage) {
-        HInventoryItem item = new HInventoryItem(hMessage.getPacket());
+        HPacket packet = hMessage.getPacket();
         synchronized (items) {
-            items.put(item.getId(), item);
+            int count = packet.readInteger();
+            for (int i = 0; i < count; i++) {
+                HInventoryItem item = new HInventoryItem(packet);
+                items.put(item.getId(), item);
+            }
         }
     }
 
